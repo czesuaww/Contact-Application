@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-// coś innego
+
 public class LoginForm extends JFrame{
 
     private final JPanel contentPane = new JPanel();
@@ -38,8 +38,17 @@ public class LoginForm extends JFrame{
         setLabelsWithActions(iCreate.createLabelAction("-"));
         setLabelsWithActions(iCreate.createLabelAction("You are new? Click here to register"));
 
-        iCreate.createLabels();
+        ArrayList<LabelSetting> label= new ArrayList<>();
+        label.add(new LabelSetting("Login", new Color(255, 255, 255), new Font("Tahoma", Font.BOLD, 26), new int[] { 10, 18, 91, 27}));
+        label.add(new LabelSetting("Username", new Color(0, 0, 0), new Font("Tahoma", Font.PLAIN, 29), new int[] { 66, 89, 143, 35}));
+        label.add(new LabelSetting("Password", new Color(0, 0, 0), new Font("Tahoma", Font.PLAIN, 29), new int[] { 66, 147, 143, 35}));
+
+        for(LabelSetting y :  label) {
+            iCreate.createLabels(y);
+        }
+
         ArrayList<JLabel> labels;
+
         labels = iCreate.getLabels();
 
         for (JLabel x : labels) {

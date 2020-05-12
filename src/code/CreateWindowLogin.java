@@ -38,38 +38,18 @@ public class CreateWindowLogin extends JFrame implements ICreateWindowFactory {
         listOfPanels.add(panel);
         return panel;
     }
+    @Override
+    public void createLabels(LabelSetting ls){
+        JLabel label = new JLabel(ls.getLabelName());
+        label.setForeground(ls.getForegroundColor());
+        label.setFont(ls.getFont());
+        label.setBounds(ls.getBoundTab()[0],ls.getBoundTab()[1],ls.getBoundTab()[2],ls.getBoundTab()[3]);
+        listOfLabelsWithoutAction.add(label);
+    }
 
     @Override
     public ArrayList<JPanel> getPanels() {
         return listOfPanels;
-    }
-
-    @Override
-    public void createLabels() {
-        JLabel labelLogin = new JLabel("Login");
-        labelLogin.setFont(new Font("Tahoma", Font.BOLD, 26));
-        labelLogin.setForeground(new Color(255, 255, 255));
-        labelLogin.setBounds(10, 18, 91, 27);
-        listOfLabelsWithoutAction.add(labelLogin);
-
-
-        JLabel labelUsername = new JLabel("Username:");
-        labelUsername.setOpaque(true);
-        labelUsername.setForeground(new Color(0, 0, 0));
-        labelUsername.setBackground(new Color(102, 153, 153));
-        labelUsername.setFont(new Font("Tahoma", Font.PLAIN, 29));
-        labelUsername.setBounds(66, 89, 143, 35);
-        listOfLabelsWithoutAction.add(labelUsername);
-
-        JLabel labelPassword = new JLabel("Password:");
-        labelPassword.setOpaque(true);
-        labelPassword.setForeground(Color.BLACK);
-        labelPassword.setFont(new Font("Tahoma", Font.PLAIN, 29));
-        labelPassword.setBackground(new Color(102, 153, 153));
-        labelPassword.setBounds(66, 147, 143, 35);
-        listOfLabelsWithoutAction.add(labelPassword);
-
-
     }
 
     @Override

@@ -9,7 +9,7 @@ public interface ICreateWindowFactory {
     JPanel createPanels(String panelName, JPanel contentPane);
     ArrayList<JPanel> getPanels();
 
-    void createLabels();
+    void createLabels(LabelSetting ls);
     ArrayList<JLabel> getLabels();
 
     JLabel createLabelAction(String labelName);

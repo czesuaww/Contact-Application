@@ -57,7 +57,19 @@ public class SignUpForm extends JFrame {
         setPanels(iCreate.createPanels("PanelUp", contentPane));
         setPanels(iCreate.createPanels("PanelMain", contentPane));
 
-        iCreate.createLabels();
+        ArrayList<LabelSetting> label= new ArrayList<>();
+        label.add(new LabelSetting("Create New Account", new Color(255, 255, 255), new Font("Tahoma", Font.BOLD, 26), new int[] {10, 18, 271, 27}));
+        label.add(new LabelSetting("First Name:", new Color(0, 0, 0), new Font("Tahoma", Font.PLAIN, 29), new int[] {127, 89, 147, 35}));
+        label.add(new LabelSetting("Last Name: ", new Color(0, 0, 0), new Font("Tahoma", Font.PLAIN, 29), new int[] {127, 135, 180, 35}));
+        label.add(new LabelSetting("Username: ", new Color(0, 0, 0), new Font("Tahoma", Font.PLAIN, 29), new int[] {137, 181, 180, 35}));
+        label.add(new LabelSetting("Password: ", new Color(0, 0, 0), new Font("Tahoma", Font.PLAIN, 29), new int[] {137, 227, 140, 35}));
+        label.add(new LabelSetting("Retype Password: ", new Color(0, 0, 0), new Font("Tahoma", Font.PLAIN, 29), new int[] {41, 273, 240, 35}));
+        label.add(new LabelSetting("Picture: ", new Color(0, 0, 0), new Font("Tahoma", Font.PLAIN, 29), new int[] {170, 361, 110, 35}));
+
+
+        for(LabelSetting y :  label) {
+            iCreate.createLabels(y);
+        }
 
         ArrayList<JLabel> labels;
         labels = iCreate.getLabels();
@@ -69,15 +81,10 @@ public class SignUpForm extends JFrame {
         setLabelX();
         setLabelMin();
         setTextFieldFirsName();
-
         setTextFieldLastName();
-
         setTextFieldUsername();
-
         setPasswordField();
-
         setTextFieldRetypePassword();
-
         setLabelPictureAdded();
         setButtonBrowse();
         setButtonCancel();
