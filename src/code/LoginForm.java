@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
+// coś innego
 public class LoginForm extends JFrame{
 
     private final JPanel contentPane = new JPanel();
