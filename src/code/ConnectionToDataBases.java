@@ -23,15 +23,15 @@ public class ConnectionToDataBases extends JFrame {
         rs = null;
     }
 
-    public void checkConnectionToLoginMyContactForm(JTextField textFieldUsername, JPasswordField passwordField) {
+    public void checkConnectionToLoginMyContactForm(JTextField textField, JPasswordField passwordField) {
 
         //JPasswordField incorectPassword = passwordField;
         //JTextField incorectUsername = textFieldUsername;
 
-        if(verifyDataLoginMyContactForm(textFieldUsername, passwordField)) {
+        if(verifyDataLoginMyContactForm(textField, passwordField)) {
             try {
-                ps = con.prepareStatement("SELECT `username`, `pass`, `picture`, id FROM `user` WHERE `username` = ? AND `pass` = ?");
-                ps.setString(1, textFieldUsername.getText());
+                ps = con.prepareStatement("SELECT `username`, `pass`, `picture`, id FROM `users` WHERE `username` = ? AND `pass` = ?");
+                ps.setString(1, textField.getText());
                 ps.setString(2, String.valueOf(passwordField.getPassword()));
                 rs = ps.executeQuery();
                 //JOptionPane.showMessageDialog(null, "Logged");
@@ -56,9 +56,9 @@ public class ConnectionToDataBases extends JFrame {
         }
     }
 
-    public boolean verifyDataLoginMyContactForm(JTextField textFieldUsername, JPasswordField passwordField) {
+    public boolean verifyDataLoginMyContactForm(JTextField textField, JPasswordField passwordField) {
 
-        if(textFieldUsername.getText().equals("") && String.valueOf(passwordField.getPassword()).equals("")) {
+        if(textField.getText().equals("") && String.valueOf(passwordField.getPassword()).equals("")) {
             JOptionPane.showMessageDialog(null, "Field Username and field Password are empty");
             return false;
         }//else if(textFieldUsername.getText().equals("")) {

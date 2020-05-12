@@ -38,6 +38,11 @@ public class CreateWindowLogin extends JFrame implements ICreateWindowFactory {
         listOfPanels.add(panel);
         return panel;
     }
+
+    @Override
+    public ArrayList<JPanel> getPanels() {
+        return listOfPanels;
+    }
     @Override
     public void createLabels(LabelSetting ls){
         JLabel label = new JLabel(ls.getLabelName());
@@ -45,11 +50,6 @@ public class CreateWindowLogin extends JFrame implements ICreateWindowFactory {
         label.setFont(ls.getFont());
         label.setBounds(ls.getBoundTab()[0],ls.getBoundTab()[1],ls.getBoundTab()[2],ls.getBoundTab()[3]);
         listOfLabelsWithoutAction.add(label);
-    }
-
-    @Override
-    public ArrayList<JPanel> getPanels() {
-        return listOfPanels;
     }
 
     @Override
@@ -112,10 +112,7 @@ public class CreateWindowLogin extends JFrame implements ICreateWindowFactory {
 
     @Override
     public ArrayList<JLabel> getLabelAction() {
-
         return listOfLabelsWithAction;
-
-
     }
 
     @Override
@@ -148,16 +145,20 @@ public class CreateWindowLogin extends JFrame implements ICreateWindowFactory {
     }
 
 
-    @Override
-    public JTextField createTextFields() {
-        JTextField textFieldUsername = new JTextField();
+    public JTextField createTextFields(TextFieldSetting ts) {
+       /* JTextField textFieldUsername = new JTextField();
         textFieldUsername.setBorder(null);
         textFieldUsername.setBackground(new Color(102, 153, 102));
         textFieldUsername.setFont(new Font("Tahoma", Font.PLAIN, 18));
         textFieldUsername.setBounds(228, 89, 233, 35);
-        textFieldUsername.setColumns(10);
-        return textFieldUsername;
-
+        textFieldUsername.setColumns(10);*/
+       // return null;
+        JTextField textField = new JTextField();
+        textField.setBorder(ts.getBorder());
+        textField.setFont(ts.getFont());
+        textField.setBackground(ts.getBackgroundColor());
+        textField.setBounds(ts.getBoundTab()[0],ts.getBoundTab()[1],ts.getBoundTab()[2],ts.getBoundTab()[3]);
+        return textField;
     }
 
     @Override

@@ -17,7 +17,7 @@ public interface ICreateWindowFactory {
 
     JButton createButtons(String buttonName);
 
-    JTextField createTextFields();
+    JTextField createTextFields(TextFieldSetting ts);
     ArrayList<JTextField> getTextFields();
 
     default JCheckBox createCheckBoxGroups() {

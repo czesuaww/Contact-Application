@@ -105,6 +105,8 @@ public class SignUpForm extends JFrame {
         }else
             panelMain.add(label);
     }
+
+    public void setTextFields(){}
     public void setLabelX() {
         JLabel lblExit = new JLabel("X");
         lblExit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -265,7 +267,7 @@ public class SignUpForm extends JFrame {
                 ResultSet rs;
 
                 try {
-                    ps = con.prepareStatement("SELECT * FROM `user` WHERE `username` = ?");
+                    ps = con.prepareStatement("SELECT * FROM `users` WHERE `username` = ?");
                     ps.setString(1, textFieldUsername.getText());
 
                     rs = ps.executeQuery();
@@ -289,7 +291,7 @@ public class SignUpForm extends JFrame {
                     PreparedStatement ps;
 
                     try {
-                        ps = con.prepareStatement("INSERT INTO `user`(`firstname`, `lastname`, `username`, `pass`, `picture`) VALUES (?,?,?,?,?)");
+                        ps = con.prepareStatement("INSERT INTO `users`(`firstname`, `lastname`, `username`, `pass`, `picture`) VALUES (?,?,?,?,?)");
                         ps.setString(1, textFieldFristName.getText());
                         ps.setString(2, textFieldLastName.getText());
                         ps.setString(3, textFieldUsername.getText());

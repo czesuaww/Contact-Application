@@ -119,7 +119,6 @@ public class MyContactsForm extends JFrame {
 
     }
 
-
     public void generateTable(String[] colNames, Object[][] rows) {
 
         PictureModel myMod = new PictureModel(rows, colNames);
@@ -651,17 +650,5 @@ public class MyContactsForm extends JFrame {
         buttonLeft.setFont(new Font("Tahoma", Font.BOLD, 11));
         buttonLeft.setBounds(225, 301, 75, 23);
         panelMain.add(buttonLeft);
-    }
-
-
-
-    public void getFormTextField() {
-		/*Person.getInstance().setFirstName(textFieldFirstName.getText());
-		Person.getInstance().setLastName(textFieldLastName.getText());
-		Person.getInstance().setPhone(textFieldPhone.getText());
-		Person.getInstance().setAddress(textAreaAdress.getText());
-		Person.getInstance().setEmail(textFieldEmail.getText());
-		Person.getInstance().setGroupC(comboBoxGroup.getSelectedItem().toString());
-		*/
     }
 }

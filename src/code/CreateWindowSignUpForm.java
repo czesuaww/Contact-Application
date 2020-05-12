@@ -67,7 +67,7 @@ public class CreateWindowSignUpForm extends JFrame implements ICreateWindowFacto
     }
 
     @Override
-    public JTextField createTextFields() {
+    public JTextField createTextFields(TextFieldSetting ts) {
         return null;
     }
 

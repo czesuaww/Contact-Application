@@ -14,7 +14,7 @@ public class LoginForm extends JFrame{
     private JPanel panelUp;
     private JPanel panelMain;
 
-    private JTextField textFieldUsername;
+    private JTextField textField = new JTextField();
     private JPasswordField passwordField;
     ICreateWindowFactory iCreate;
 
@@ -55,9 +55,23 @@ public class LoginForm extends JFrame{
             setLabels(x);
         }
 
-        textFieldUsername = iCreate.createTextFields();
+        //ArrayList<TextFieldSetting> textField= new ArrayList<>();
+       // textField.add(new TextFieldSetting(new JTextField(),null, new Font("Tahoma", Font.PLAIN, 18), new int[] {228, 89, 233, 35}, new Color(102, 153, 102)));
+
+        //for(TextFieldSetting y :  textField) {
+       //     iCreate.createTextFields(y);
+       // }
+       // ArrayList<JTextField> textFields = new ArrayList<>();
+
+        //textFields = iCreate.getTextFields();
+        //for (JTextField x : textFields) {
+       //     setTextFields(x);
+       // }
+
+        textField = iCreate.createTextFields(new TextFieldSetting(null,new Font("Tahoma", Font.PLAIN, 18), new int[] {228, 89, 233, 35}, new Color(102, 153, 102)));
+
         passwordField = iCreate.createPasswords();
-        setTextFieldUsername();
+        setTextFields();
         setTextPassword();
         showHiddenPassword();
         setButtons(iCreate.createButtons("Cancel"));
@@ -94,8 +108,8 @@ public class LoginForm extends JFrame{
             panelMain.add(labels);
     }
 
-    public void setTextFieldUsername() {
-        panelMain.add(textFieldUsername);
+    public void setTextFields() {
+        panelMain.add(textField);
     }
 
     public void setTextPassword() {
@@ -125,7 +139,7 @@ public class LoginForm extends JFrame{
         }else if(buttons.getText() == "Login") {
             buttons.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    ConnectionToDataBases.getInstance().checkConnectionToLoginMyContactForm(textFieldUsername, passwordField);
+                    ConnectionToDataBases.getInstance().checkConnectionToLoginMyContactForm(textField, passwordField);
                 }
             });
             panelMain.add(buttons);

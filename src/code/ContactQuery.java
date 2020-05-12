@@ -17,7 +17,7 @@ public class ContactQuery {
         PreparedStatement ps;
 
         try {
-            ps = con.prepareStatement("INSERT INTO `mycontacts`(`firstname`, `lastname`, `groupc`, `phone`, `email`, `address`, `picture`, `userid`) VALUES (?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO `mycontact`(`firstname`, `lastname`, `groupc`, `phone`, `email`, `address`, `picture`, `userid`) VALUES (?,?,?,?,?,?,?,?)");
             ps.setString(1, cont.getFirstName());
             ps.setString(2, cont.getLastName());
             ps.setString(3, cont.getGroupC());
@@ -52,7 +52,7 @@ public class ContactQuery {
 
         //if the user wants to update the contact picture
         if(withImage == true) {
-            updateQuery = "UPDATE `mycontacts` SET `firstname`= ?,`lastname`= ?,`groupc`= ?,`phone`= ?,`email`= ?,`address`= ?,`picture`= ?  WHERE `id` = ?";
+            updateQuery = "UPDATE `mycontact` SET `firstname`= ?,`lastname`= ?,`groupc`= ?,`phone`= ?,`email`= ?,`address`= ?,`picture`= ?  WHERE `id` = ?";
 
             try {
                 ps = con.prepareStatement(updateQuery);
@@ -80,7 +80,7 @@ public class ContactQuery {
             //return contactIsCreated;
 
         }else { //if the user wants to keep the same image or remove the image
-            updateQuery = "UPDATE `mycontacts` SET `firstname`= ?,`lastname`= ?,`groupc`= ?,`phone`= ?,`email`= ?,`address`= ? WHERE `id` = ?";
+            updateQuery = "UPDATE `mycontact` SET `firstname`= ?,`lastname`= ?,`groupc`= ?,`phone`= ?,`email`= ?,`address`= ? WHERE `id` = ?";
 
             try {
                 ps = con.prepareStatement(updateQuery);
@@ -118,7 +118,7 @@ public class ContactQuery {
         PreparedStatement ps;
 
         try {
-            ps = con.prepareStatement("DELETE FROM `mycontacts` WHERE `id` = ?" );
+            ps = con.prepareStatement("DELETE FROM `mycontact` WHERE `id` = ?" );
             ps.setInt(1, cid);
 
             if(ps.executeUpdate() != 0){
@@ -146,8 +146,7 @@ public class ContactQuery {
 
         try {
             st = con.createStatement();
-            rs = st.executeQuery("SELECT `id`, `firstname`, `lastname`, `groupc`, `phone`, `email`, `address`, `picture` FROM `mycontacts` WHERE userid =" + userId);
-
+            rs = st.executeQuery("SELECT `id`, `firstname`, `lastname`, `groupc`, `phone`, `email`, `address`, `picture` FROM `mycontact` WHERE userid =" + userId);
             Contact cont;
 
             while(rs.next()) {
